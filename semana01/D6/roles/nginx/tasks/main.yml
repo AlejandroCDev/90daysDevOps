@@ -1,0 +1,17 @@
+- name: Instalar Nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: true
+
+- name: Asegurar que Nginx está corriendo
+  service:
+    name: nginx
+    state: started
+    enabled: true
+
+- name: Crear página de inicio personalizada
+  copy:
+    dest: /var/www/html/index.nginx-debian.html
+    content: "<h1>Bienvenido a la landing page personalizada</h1>"
+

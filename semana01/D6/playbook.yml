@@ -1,0 +1,9 @@
+- name: Desplegar aplicación web con Nginx, usuario y firewall
+  hosts: all
+  become: true
+
+  roles:
+    - nginx
+    - devops
+    - firewall
+

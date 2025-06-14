@@ -1,0 +1,26 @@
+- name: Instalar UFW si no está presente
+  apt:
+    name: ufw
+    state: present
+    update_cache: true
+
+- name: Permitir conexiones SSH
+  ufw:
+    rule: allow
+    port: 22
+
+- name: Permitir tráfico HTTP
+  ufw:
+    rule: allow
+    port: 80
+
+- name: Permitir tráfico HTTPS
+  ufw:
+    rule: allow
+    port: 443
+
+- name: Activar UFW
+  ufw:
+    state: enabled
+    policy: deny
+
